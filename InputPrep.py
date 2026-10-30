@@ -55,7 +55,7 @@ if len(xyzs) == 0:  # Make sure there are .xyzs in the directory
     quit()
 else:
     printToLog(f"# INFO - {str(len(xyzs))} .xyz files found at [{homeDirectory}]")
-    printToLog("# INFO - Following .cif files are available [" + str(list(xyzs.values())) + "]")
+    printToLog("# INFO - Following .xyz files are available [" + str(list(xyzs.values())) + "]")
 
 for refcode, filename in xyzs.items():
     refcodeDirectory = os.path.join(homeDirectory, refcode)
@@ -78,4 +78,4 @@ end
     with open(input, "w") as file:
         print(content.lstrip("\n"), file=file)
         printToLog(f"# INFO - Created .inp file for [{refcode}] file at [{input}]")
-    subprocess.call(f"cd {refcodeDirectory}; orca_rungen-1 -n {nprocs} -i {refcode}.inp", shell=True)
+    subprocess.call(f"cd {refcodeDirectory}; orca_rungen-1 -n {nprocs} -i {refcode}.inp;", shell=True)
